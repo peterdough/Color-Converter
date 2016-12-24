@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="colorConverterTwo">
+	<head>
+	  <title>Color Converter</title>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	  <link href='styles/main.css' rel='stylesheet' type="text/css">
+	</head>
+	<body ng-controller = "ConverterController as converter">
+		<h1>Color Converter</h1>
+		<div ng-repeat = "color in converter.colors">
+			<table>
+				<tr>
+					<td>
+						<ul>
+							<!-- RGB INPUT BOX -->
+							<label>RGB:</label>
+							<input ng-change="converter.isValidRgb(color) ? converter.rgbConvert(color) : color.hex = ''" ng-model="color.rgb" type="text" placeholder="rgb(0, 0, 0)"/>
+						</ul>
+						<ul>
+							<!-- HEX INPUT BOX -->
+							<label>HEX:</label>
+							<input  ng-change="converter.isValidHex(color) ? converter.hexConvert(color) : color.rgb = ''" type="text" placeholder="#000000" ng-model="color.hex"/>
+						</ul>
+					</td>
+					<td>
+						<!-- SWATCH -->
+						<div ng-style="{'background-color': color.updatedColor}" class="swatch">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	  <!--
+	  <script src="vendor/angular.js" type="text/javascript"></script>
+	  -->
+	  <script src="scripts/app.js" type="text/javascript"></script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+.swatch {
+	width: 100px;
+	height: 50px;
+	border: 1px solid black;
+	//background: #0099cc;
+	background: white;
+	//background: rgb(44,100,255);
+  }
