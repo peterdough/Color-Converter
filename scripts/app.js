@@ -14,8 +14,13 @@
 	
 	var app = angular.module("colorConverterTwo", []);
 	
-	app.controller("ConverterController", function() {
+	app.controller("ConverterController", function($scope, dataService) {
 		this.colors = colorValues;
+		
+		/*dataService.getColorValues(function(response) { 
+		  console.log(response.data);  
+		  $scope.colors = response.data;
+		});*/
 		
 		// RETURNS TRUE IF color.rgb IS A VALID RGB VALUE
 		this.isValidRgb = function(color) {
@@ -107,6 +112,12 @@
 			else {
 				return "rgb(" + red + ", " + green + ", " + blue + ")";
 			}
+		};
+	});
+	
+	app.service('dataService', function($http) {
+		this.getColorValues = function(callback) {
+			$http.get('mock/colorValues.json').then(callback)
 		};
 	});
 })();
