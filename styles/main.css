@@ -6,3 +6,15 @@
 	background: white;
 	//background: rgb(44,100,255);
   }
+  
+  .box {
+	width: 150px;
+	height: 120px;
+	border: 1px solid black;
+	background: white;
+  }
+  
+  .divSwatch {
+	background: teal;
+  }
+  
